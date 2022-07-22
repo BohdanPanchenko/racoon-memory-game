@@ -4,6 +4,7 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        user-select: none;
     }
     
     html,
@@ -12,7 +13,6 @@
     }
     
     body {
-        /* padding-top: 100px; */
         background-image: url('./images/bc.png');
         overflow: hidden;
     }
@@ -41,33 +41,47 @@
     
     .card {
         height: 100%;
-        /* width: 250px;
-    height: 200px; */
         border-radius: 20px;
         overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: rgb(169, 215, 255);
-        transition: transform 0.4s;
+        transition: background-color 3s, transform 0.4s;
         cursor: pointer;
         transform: rotateY(0deg);
         position: relative;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+    }
+    
+    .front,
+    .back {
+        backface-visibility: hidden;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        /* bottom: 0; */
+        visibility: hidden;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
     }
     
     .front {
-        display: none;
         transform: rotateY(180deg);
         backface-visibility: hidden;
+        height: 100%;
     }
     
     .front img,
     .back img {
-        /* width: 100%; */
+        pointer-events: none;
     }
     
     .back {
-        display: none;
         backface-visibility: hidden;
     }
     
@@ -77,6 +91,9 @@
     }
     
     .card>*.active {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         backface-visibility: visible;
+        visibility: visible;
     }
