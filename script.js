@@ -13,11 +13,11 @@ const soundEffect = {
 const animations = ['slide-in-blurred-top', 'slide-in-blurred-tr', 'slide-in-blurred-right', 'slide-in-blurred-br', 'slide-in-blurred-bottom', 'slide-in-blurred-bl', 'slide-in-blurred-left', 'slide-in-blurred-tl'];
 const racoonImages = [];
 const racoonImagesLength = 8;
-for (let i = 1; i <= racoonImagesLength; i++) {
-    racoonImages.push(new Image());
-    racoonImages[i - 1].src = `./images/${i}.png`;
-    racoonImages[i - 1].count = 2;
-}
+//for (let i = 1; i <= racoonImagesLength; i++) {
+ //   racoonImages.push(new Image());
+  //  racoonImages[i - 1].src = `./images/${i}.png`;
+  // racoonImages[i - 1].count = 2;
+//}
 const imagePosition = getRandomPosition(racoonImagesLength * 2);
 
 renderCards();
