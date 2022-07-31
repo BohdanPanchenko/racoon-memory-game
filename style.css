@@ -32,47 +32,42 @@
         flex-basis: 250px;
         height: 200px;
         height: 190px;
-        animation: slide-in-blurred-br 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+        cursor: pointer;
     }
     
-    .card-wrapper {
-        perspective: 700px;
-    }
+    .card-wrapper {}
     
     .card {
+        perspective: 700px;
         height: 100%;
-        border-radius: 20px;
-        overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgb(169, 215, 255);
-        transition: background-color 3s, transform 0.4s;
-        cursor: pointer;
         transform: rotateY(0deg);
         position: relative;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+        border-radius: 20px;
     }
     
     .front,
     .back {
+        border-radius: 20px;
+        background: rgb(169, 215, 255);
         backface-visibility: hidden;
         position: absolute;
         left: 0;
         right: 0;
         top: 0;
-        /* bottom: 0; */
-        visibility: hidden;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        pointer-events: none;
+        /* pointer-events: none; */
+        transition: transform 0.4s, background 3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
     }
     
     .front {
         transform: rotateY(180deg);
-        backface-visibility: hidden;
         height: 100%;
     }
     
@@ -81,66 +76,10 @@
         pointer-events: none;
     }
     
-    .back {
-        backface-visibility: hidden;
+    .card.flipped .front {
+        transform: rotateY(360deg);
     }
     
-    .card.flipped {
-        /* display: block; */
+    .card.flipped .back {
         transform: rotateY(180deg);
     }
-    
-    .card>*.active {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        backface-visibility: visible;
-        visibility: visible;
-    }
-    /* <button class="button-53" role="button">Start again</button> */
-    /* CSS */
-    /* .start-btn {
-        position: absolute;
-        background-color: #3DD1E7;
-        border: 0 solid #E5E7EB;
-        box-sizing: border-box;
-        color: #000000;
-        display: flex;
-        font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        font-size: 1rem;
-        font-weight: 700;
-        justify-content: center;
-        line-height: 1.75rem;
-        padding: .75rem 1.65rem;
-        text-align: center;
-        text-decoration: none #000000 solid;
-        text-decoration-thickness: auto;
-        width: 100%;
-        max-width: 250px;
-        cursor: pointer;
-        transform: rotate(-2deg);
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-    }
-    
-    .start-btn:focus {
-        outline: 0;
-    }
-    
-    .start-btn:after {
-        content: '';
-        position: absolute;
-        border: 1px solid #000000;
-        bottom: 4px;
-        left: 4px;
-        width: calc(100% - 1px);
-        height: calc(100% - 1px);
-    }
-    
-    .start-btn:hover:after {
-        bottom: 2px;
-        left: 2px;
-    }
-    
-  */
