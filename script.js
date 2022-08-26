@@ -110,7 +110,7 @@ function renderCards() {
         card.querySelector('.card').setAttribute('data-number', `${imagePosition[i]}`);
         card.isFlipped = false;
         card.querySelector('.card').isStatic = false;
-            setTimeout(()=>{container.appendChild(card)},200)
+        container.appendChild(card);   
             
             
             
