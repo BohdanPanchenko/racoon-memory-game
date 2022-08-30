@@ -117,7 +117,7 @@ function renderCards() {
         container.appendChild(card); 
             }
         
-            card.querySelector('.front img').src = 'images/${imagePosition[i]}.png';
+            card.querySelector('.front img').src = `images/${imagePosition[i]}.png`;
             
             
         
