@@ -13,10 +13,11 @@ const soundEffect = {
 const animations = ['slide-in-blurred-top', 'slide-in-blurred-tr', 'slide-in-blurred-right', 'slide-in-blurred-br', 'slide-in-blurred-bottom', 'slide-in-blurred-bl', 'slide-in-blurred-left', 'slide-in-blurred-tl'];
 const racoonImages = [];
 const racoonImagesLength = 8;
+const cards = [];
 //for (let i = 1; i <= racoonImagesLength; i++) {
- //   racoonImages.push(new Image());
-  //  racoonImages[i - 1].src = `./images/${i}.png`;
-  // racoonImages[i - 1].count = 2;
+//   racoonImages.push(new Image());
+//  racoonImages[i - 1].src = `./images/${i}.png`;
+// racoonImages[i - 1].count = 2;
 //}
 const imagePosition = getRandomPosition(racoonImagesLength * 2);
 
@@ -25,7 +26,8 @@ renderCards();
 
 const container = document.querySelector('.container');
 let canflip = true;
-let cards = Array.from(document.getElementsByClassName('card'));
+
+//  Array.from(document.getElementsByClassName('card'));
 let counter = 0;
 let pair = [];
 
@@ -105,20 +107,21 @@ function renderCards() {
         <div class="back"><img src="images/back.png" alt="racoon image">
         <div class="front"><img alt="racoon image"></div>
     </div>`;
-         card.setAttribute('data-number', `${imagePosition[i]}`);
-        card.isFlipped = false;
-        card.isStatic = false;
-        card.querySelector('.front img').onload = function (){
-                
-        card.style.animationDuration = `${getAnimationDuration()}s`;
-        card.style.animationName = `${animations[getRandomIntInclusive(0, animations.length - 1 )]}`;
-        container.appendChild(card); 
-            }
-        
-            card.querySelector('.front img').src = `images/${imagePosition[i]}.png`;
-            
-            
-        
+        card.querySelector('.card').setAttribute('data-number', `${imagePosition[i]}`);
+        card.querySelector('.card').isFlipped = false;
+        card.querySelector('.card').isStatic = false;
+        card.querySelector('.front img').onload = function() {
+
+            card.style.animationDuration = `${getAnimationDuration()}s`;
+            card.style.animationName = `${animations[getRandomIntInclusive(0, animations.length - 1 )]}`;
+
+        }
+        container.appendChild(card);
+        card.querySelector('.front img').src = `images/${imagePosition[i]}.png`;
+        cards.push(card.querySelector('.card'));
+
+
+
 
     }
 }
