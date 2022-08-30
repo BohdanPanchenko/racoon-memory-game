@@ -105,15 +105,13 @@ function renderCards() {
         <div class="back"><img src="images/back.png" alt="racoon image">
         <div class="front"><img alt="racoon image"></div>
     </div>`;
-         card.querySelector('.card').setAttribute('data-number', `${imagePosition[i]}`);
+         card.setAttribute('data-number', `${imagePosition[i]}`);
         card.isFlipped = false;
-        card.querySelector('.card').isStatic = false;
+        card.isStatic = false;
         card.querySelector('.front img').onload = function (){
                 
-              card.style.animationDuration = `${getAnimationDuration()}s`;
+        card.style.animationDuration = `${getAnimationDuration()}s`;
         card.style.animationName = `${animations[getRandomIntInclusive(0, animations.length - 1 )]}`;
-       
-           
         container.appendChild(card); 
             }
         
