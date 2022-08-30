@@ -114,9 +114,9 @@ function renderCards() {
 
             card.style.animationDuration = `${getAnimationDuration()}s`;
             card.style.animationName = `${animations[getRandomIntInclusive(0, animations.length - 1 )]}`;
-
+            container.appendChild(card);
         }
-        container.appendChild(card);
+        
         card.querySelector('.front img').src = `images/${imagePosition[i]}.png`;
         cards.push(card.querySelector('.card'));
 
